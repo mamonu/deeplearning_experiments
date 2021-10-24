@@ -5,6 +5,7 @@
 
 
 
+## Also some Deep Learning basics notes
 
 ## SOFTMAX
 
@@ -32,7 +33,7 @@ def softmax(x):
 print(softmax(scores))
 ```
 
-![](../imgs/DL_softmax_graph.png)
+![](imgs/DL_softmax_graph.png)
 
 
 Caution:
@@ -41,8 +42,6 @@ Caution:
  2. if we divide scored by 10 , probabilities get close to the uniform distribution.
 
 
-
-<h2 id="e227f3d7f7e740bb759f0066342ff799"></h2>
 
 
 ## CROSS-ENTROPY
@@ -54,7 +53,7 @@ D(S,L) = -Σ Lᵢ log(Sᵢ)
 
 Cross-entropy is not symmetric :   D(S,L) != D(L,S)
 
-![](../imgs/DL_cross_entropy.png)
+![](imgs/DL_cross_entropy.png)
 
 - We have an input , it's going to be turned into logits using a linear model
 - We're then going to feed the logits , which are scores , into a softmax to turn them into probobilities
@@ -63,8 +62,6 @@ Cross-entropy is not symmetric :   D(S,L) != D(L,S)
 This entire setting is often called multinominal logistic classification.
 
 ---
-
-<h2 id="0b3ff0c33c38d07fc732b5ec92ce1647"></h2>
 
 
 ## Minimizing Cross Entropy
@@ -82,11 +79,7 @@ traing loss : l = 1/N * Σ D( S(Wxᵢ + b) , Lᵢ )
 Ways:
 
  1. Gradient Descent
-     - Take the dirivative of your loss, with respect to your parameters , and follow that derivative by taking a step backwards and repeat , until you get to the buttom.
-
-
-
-<h2 id="6bd7e96f5a6e9231f7d947c5fc18e876"></h2>
+     - Take the derivative of your loss, with respect to your parameters , and follow that derivative by taking a step backwards and repeat , until you get to the buttom.
 
 
 ## Numerical Stability
@@ -113,9 +106,7 @@ MEAN :       Xᵢ = 0
 VARIANCE:      σ(Xᵢ) = σ(Xⱼ)
 ```
 
-![](../imgs/DL_numerical_stability.png)
-
-<h2 id="fff0d600f8a0b5e19e88bfb821dd1157"></h2>
+![](imgs/DL_numerical_stability.png)
 
 
 ### Images
@@ -124,8 +115,6 @@ If you dealing with images, you can take the pixel value of your image, they are
 
 It doesn't change the content of your image, but it makes it much easier for the optimization to proceed numerically.
 
-<h2 id="9457fbceb006e0a464b95be0ee804d83"></h2>
-
 
 ### Weight initialization
 
@@ -133,7 +122,7 @@ You also want your weights and biases to be initialized at a good enough startin
 
 Draw the weights randomly from a Gaussian distribution with mean zero and standard deviation sigma.
 
-![](../imgs/DL_weights_initialization.png)
+![](imgs/DL_weights_initialization.png)
 
 The sigma value determines the order of magnitude of you outputs at the initial point of your optimization.  Because of the softmax on top of it, the order of magnitude also determines the peakiness of your initial probability distribution.
 
@@ -145,10 +134,8 @@ It's usually better to begin with an uncertain distribution and let the optimiza
 ***So use a small sigma to begin with***.
 
 
-<h2 id="caa736eb798e357900ffcd35d1a78e99"></h2>
 
-
-### Initialization of the lgistic classifier
+### Initialization of the logistic classifier
 
 Now we actually have everythings we need to actually train this classifier.
 
